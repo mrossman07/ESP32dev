@@ -4,6 +4,8 @@
  * Libraries required (install via Arduino Library Manager):
  *   - ESPAsyncWebServer  (by me-no-dev)
  *   - AsyncTCP           (by me-no-dev)
+ * Make sure you get the mathieucarbou versions
+ * /github.com/mathieucarbou/..
  *
  * Board: ESP32 Dev Module (or any ESP32 variant)
  */
