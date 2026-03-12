@@ -1,0 +1,13 @@
+Quick install:
+
+1. Open xiao_s3_dashboard_project.ino in Arduino IDE.
+2. Install libraries:
+   - ArduinoJson
+   - WebSockets by Markus Sattler
+3. Select board: XIAO_ESP32S3
+4. Select a partition scheme with LittleFS space.
+5. Upload the data/ folder to LittleFS using your ESP32 LittleFS uploader.
+6. Upload the sketch.
+7. Open Serial Monitor at 115200.
+
+Default admin password in data/config.json is: admin

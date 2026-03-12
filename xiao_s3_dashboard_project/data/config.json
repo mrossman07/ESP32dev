@@ -1,0 +1,8 @@
+{
+  "wifiSsid": "YOUR_WIFI_SSID",
+  "wifiPassword": "YOUR_WIFI_PASSWORD",
+  "deviceName": "xiao-s3",
+  "adminPassword": "admin",
+  "sampleIntervalMs": 1000,
+  "analogPin": 1
+}

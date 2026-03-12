@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>XIAO ESP32-S3 Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>XIAO ESP32-S3 Dashboard</h1>
+    <p class="sub">LittleFS web app + WebSocket live updates + sensor API + OTA + rotating logs + NVS counters</p>
+
+    <div class="card">
+      <h2>Live status</h2>
+      <div class="grid">
+        <div>Device</div><div id="deviceName">-</div>
+        <div>Wi‑Fi</div><div id="wifiConnected">-</div>
+        <div>SSID</div><div id="ssid">-</div>
+        <div>IP</div><div id="ip">-</div>
+        <div>mDNS</div><div id="mdns">-</div>
+        <div>RSSI</div><div id="rssi">-</div>
+        <div>Free heap</div><div id="heap">-</div>
+        <div>Uptime</div><div id="uptime">-</div>
+        <div>Analog raw</div><div id="analogRaw">-</div>
+        <div>Analog volts</div><div id="analogVolts">-</div>
+        <div>Sample count</div><div id="sampleCount">-</div>
+        <div>Log size</div><div id="logSizeBytes">-</div>
+      </div>
+      <div class="row">
+        <button id="refreshBtn">Refresh once</button>
+        <span id="wsState" class="pill">WS: connecting</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Config</h2>
+      <label>Device name</label>
+      <input id="cfgDeviceName" placeholder="xiao-s3">
+
+      <label>Wi‑Fi SSID</label>
+      <input id="cfgSsid" placeholder="Wi‑Fi SSID">
+
+      <label>Wi‑Fi password</label>
+      <input id="cfgPassword" type="password" placeholder="Wi‑Fi password">
+
+      <label>Current admin password</label>
+      <input id="cfgAdminPassword" type="password" placeholder="Current admin password used for save/restart/OTA">
+
+      <label>New admin password (optional)</label>
+      <input id="cfgNewAdminPassword" type="password" placeholder="Leave blank to keep current password">
+
+      <label>Analog pin</label>
+      <input id="cfgAnalogPin" type="number" min="0" max="20">
+
+      <label>Sample interval (ms)</label>
+      <input id="cfgSampleMs" type="number" min="100" max="10000">
+
+      <div class="row">
+        <button id="saveBtn">Save config</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+      <pre id="configResult">Ready</pre>
+    </div>
+
+    <div class="card two-col">
+      <div>
+        <h2>Stats</h2>
+        <pre id="statsBox">Loading...</pre>
+      </div>
+      <div>
+        <h2>Sensor API</h2>
+        <pre id="sensorBox">Loading...</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>OTA firmware update</h2>
+      <p>Upload a compiled firmware <code>.bin</code> file using the admin password.</p>
+      <div class="row">
+        <a class="button-link" href="/ota">Open OTA page</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Logs</h2>
+      <div class="row">
+        <button id="loadLogsBtn">Load logs</button>
+      </div>
+      <pre id="logsBox">Press “Load logs”</pre>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
