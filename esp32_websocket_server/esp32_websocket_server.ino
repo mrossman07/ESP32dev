@@ -411,7 +411,7 @@ void onWsEvent(AsyncWebSocket* server, AsyncWebSocketClient* client,
       // Simple command parsing (no JSON library needed for a single key)
       if (msg.indexOf("toggleLED") != -1) {
         ledState = !ledState;
-        digitalWrite(LED_BUILTIN, ledState ? HIGH : LOW);
+        digitalWrite(LED_BUILTIN, ledState ? LOW : HIGH);
         Serial.printf("[WS] LED toggled → %s\n", ledState ? "ON" : "OFF");
         broadcastState();   // push update to all clients immediately
       }
@@ -462,7 +462,7 @@ void updateSensors() {
 void setup() {
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH);
 
   // Connect to Wi-Fi
   Serial.printf("\nConnecting to %s", WIFI_SSID);
